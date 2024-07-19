@@ -332,11 +332,19 @@ if do_compare
     hull(hull>=8) = 0;
     hull(hull>0) = 1;
     hull = logical(hull);
+    % getting the location of each point on the hull
+    x = info_dvf.PixelDimensions(1)*[1:info_dvf.Dimensions(1)];
+    y = info_dvf.PixelDimensions(2)*[1:info_dvf.Dimensions(2)];
+    z = info_dvf.PixelDimensions(3)*[1:info_dvf.Dimensions(3)];
+    [X,Y,Z] = meshgrid(x,y,z);
+    pc_hull(:,1) = X(hull);
+    pc_hull(:,2) = Y(hull);
+    pc_hull(:,3) = Z(hull);
     for jj = 1:3;
         dvf_hull = logical(zeros(size(dvf_gt)));
         dvf_hull(:,:,:,jj) = hull;
-        pc_gt(:,jj) = dvf_gt(dvf_hull);
-        pc_comp(:,jj) = dvf_comp(dvf_hull);
+        pc_gt(:,jj) = pc_hull(:,jj)+dvf_gt(dvf_hull);
+        pc_comp(:,jj) = pc_hull(:,jj)+dvf_comp(dvf_hull);
     end
     %we now have a point cloud pc of where the surface ended up
     % compute distances between point clouds
