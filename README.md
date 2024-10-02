@@ -16,3 +16,8 @@ https://au.mathworks.com/matlabcentral/fileexchange/47463-imshow3dfull
 
 For viewing outside Matlab, install 3DSlicer
 https://www.slicer.org/
+
+## Citation
+This work was included as a poster presentation at the 2024 AAPM annual meeting. Cite as
+
+Dillon, O.T., Lau, B.K.F., Kertesz, H., Keall, P.J., 2024, July. Dvgardener: An Open-Source Toolbox for Manipulation, Quantification, Generation and Compression of Deformation Vector Fields. In AAPM 66th Annual Meeting & Exhibition. AAPM.
